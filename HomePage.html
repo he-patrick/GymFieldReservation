@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+<style>
+  .bgimg-1{
+    background-image: url('C:/Users/yongc/Documents/GitHub/FieldGymReservation/EarlofMarch.HEIC');
+    min-height: 100%;
+  }
+</style>
+</head>
 <html>
     <body class="w3-white">
         <!-- Nav Bar at the Top-->
         <div class="w3-bar w3-light-green" style="font-size: 18px">
           <!--Buttons on the Nav Bar-->
-          <a class="w3-bar-item w3-button w3-wide"><em>GnF</em> Gym and Field Booking</a>
+          <a href="HomePage.html" class="w3-bar-item w3-button w3-wide"><em>GnF</em> Gym and Field Booking</a>
           <a href="#" class="w3-bar-item w3-button w3-right">Contact</a>
           <!--Dropdown on Nav Bar-->
           <div class="w3-dropdown-hover w3-right">
             <button class="w3-button">Gyms & Fields &#9660</button>
             <div class="w3-dropdown-content w3-bar-block w3-card-4">
-              <a href="#" class="w3-bar-item w3-button">&#189 Gym 1</a>
+              <a href="ReservationPage.html" class="w3-bar-item w3-button">&#189 Gym 1</a>
               <a href="#" class="w3-bar-item w3-button">&#189 Gym 2</a>
               <a href="#" class="w3-bar-item w3-button">Upper Gym</a>
               <a href="#" class="w3-bar-item w3-button">Intermediate Gym</a>
@@ -21,25 +29,33 @@
             </div>
           </div>
         </div>
+        <!--Create little header with Earl of March image-->
+        <div class="bgimg-1 w3-display-container" style="opacity: 0.8">
+          <img src="EarlofMarch.HEIC" style="height: 75%; width: 100%">
+          <div class="w3-display-middle" style="white-space:nowrap;">
+            <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">EARL <span class="w3-hide-small">ATHLETICS</span> </span>
+          </div>
+        </div>
         
-        <br>
         <div class="w3-center w3-container">
-          <div class="w3-third w3-display-container">
-            <button class="w3-button w3-white w3-hover-grey w3-round-large" style="width: 90%">
-            <img src="HalfMainField1.png" class="w3-round-large " style="width:100%">
-            <div class="w3-display-bottommiddle">&#189 Main Field #1</div>
+          <div class="w3-third">
+            <button class="w3-button w3-white w3-hover-grey w3-round-large" style="width:90%">
+              <div class="w3-display-container">
+                <img src="HalfMainField1.png" class="w3-round-large" style="width:100%">
+                <div class="w3-display-bottommiddle w3-display-hover w3-wide" style="text-shadow: 1px 1px 0 #444; font-size: 20px">&#189 Main Field #1</div>
+              </div>
             </button>
           </div>
           <div class="w3-third">
-          <button class="w3-button w3-white w3-hover-grey w3-round-large  " style="width: 90%">
-          <img src="HalfMainField2.png"class="w3-round-large" style="width:100%">
+          <button class="w3-button w3-white w3-hover-grey w3-round-large" style="width: 90%">
+          <img src="HalfMainField2.png" class="w3-round-large" style="width:100%">
           <div class="w3-display-bottommiddle">&#189 Main Field #2</div>
           </button>
           </div>
           <div class="w3-third">
-          <button class="w3-button w3-white w3-hover-grey w3-round-large " style="width: 90%">
-          <img src="UpperField.png"class="w3-round-large" style="width:100%">Upper Field
-          </button>
+            <button class="w3-button w3-white w3-hover-grey w3-round-large " style="width: 90%">
+              <img src="UpperField.png"class="w3-round-large" style="width:100%">
+            </button>
           </div>
         </div>
         <br><br>
