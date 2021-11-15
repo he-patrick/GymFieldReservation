@@ -4,22 +4,24 @@
   <body class="w3-white">
     <div class="w3-top">
       <div class="w3-bar w3-light-green" style="font-size: 18px">
-        <a href="HomePage.html" class="w3-bar-item w3-button w3-wide"><em>GnF</em> Gym and Field Booking</a>  
-        <button onclick="document.getElementById('id01').style.display='block'"
-        class="w3-bar-item w3-button w3-right">Contact</button>
-    
+        <a href="HomePage.html" class="w3-bar-item w3-button w3-wide"><em>GnF</em> Gym and Field Booking</a>
+        
+        <button onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button w3-right">Contact</button>
+        
         <div id="id01" class="w3-modal">
-        <div class="w3-modal-content">
-            <div class="w3-container">
-              <span onclick="document.getElementById('id01').style.display='none'"
+          <div class="w3-modal-content w3-card-4">
+            <header class="w3-container w3-teal"> 
+              <span onclick="document.getElementById('id01').style.display='none'" 
               class="w3-button w3-display-topright">&times;</span>
-              <div class="w3-card-4">
-                <img src="MsPort.png" alt="Ms.Port">
-                <div class="w3-container w3-center">
-                  <p>meganport@ocdsb.ca</p>
-                </div>
-              </div>
+              <img src="MsPort.png" onclick="document.getElementById('modal01').style.display='block'" class="w3-hover-opacity">
+            </header>
+            <div class="w3-container">
+              <p>Some text..</p>
+              <p>Some text..</p>
             </div>
+            <footer class="w3-container w3-teal">
+              <p>Modal Footer</p>
+            </footer>
           </div>
         </div>
         <div class="w3-dropdown-hover w3-right">
@@ -34,6 +36,7 @@
             <a href="UpperField.html" class="w3-bar-item w3-button">Upper Field</a>
           </div>
         </div>
+      </div>
     </div>
     </div>
 <br><br>
