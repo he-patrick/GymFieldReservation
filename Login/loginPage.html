@@ -1,21 +1,23 @@
 <!DOCTYPE html> 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    .text-field{
+        width: 33%;
+        height: 40px;
+    }
+</style>
 <html>
     <body>
-        <!--Header Bar at the top-->
-        <div class="w3-bar w3-light-green" style="font-size: 18px">
-            <!--Buttons on the Nav Bar-->
-            <a href="HomePage.html" class="w3-bar-item w3-button w3-wide"><em>GnF</em> Gym and Field Booking</a>
-            <a href="#" class="w3-bar-item w3-button w3-right">Contact</a>
-            <!--Future development: Add a pop up card?-->
-        </div>
         <div class="w3-container">
-            <form action="loginHandler.php" method="post">
-                <label for="username">Please enter your username:</label><br>
-                <input type="text" id="username" name="username"><br>
-                <label for="password">Please enter your password:</label><br>
-                <input type="text" id="password" name="password"><br>
-                <input type="submit" value="submit">
+            <div class="w3-center">
+                <h1 class="w3-wide"><strong>Earl of March Gym and Field Bookings</strong></h1>
+                <h3 class="w3-monospace w3-text-light-green">Ready to reserve?</h2>
+                <p style="opacity: 0.6;">Log in to reserve a gym or field at Earl of March Secondary School</p>
+            </div>
+            <form class="w3-center" action="loginHandler.php" method="post">
+                <input class="text-field" type="text" id="username" name="username" value="Username or Email"><br><br>
+                <input class="text-field" type="text" id="password" name="password" value="Password"><br><br>
+                <input class="w3-cyan w3-hover-light-green w3-border-0 text-field" type="submit" value="Log in">
             </form>
         </div>
     </body>
