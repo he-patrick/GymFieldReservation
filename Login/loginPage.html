@@ -13,13 +13,13 @@
     }
 </style>
 <html>
-    <body class="w3-light-grey">
+    <body class="w3-sand" style="opacity: 0.9;">
         <div class="all-centered">
             <div class="w3-container w3-center">
                 <div class="w3-center">
                     <h1 class="w3-wide w3-mobile"><strong>Earl of March Gym and Field Bookings</strong></h1>
                     <h3 class="w3-monospace w3-text-light-green w3-mobile">Ready to reserve?</h2>
-                    <p class="w3-mobile" style="opacity: 0.6;">Log in to reserve a gym or field at Earl of March Secondary School</p>
+                    <p class="w3-mobile" style="opacity: 0.8;">Log in to reserve a gym or field at Earl of March Secondary School</p>
                 </div>
                 <form class="w3-center" action="loginHandler.php" method="post">
                     <input class="text-field" type="text" id="username" name="username" placeholder="Username or Email"><br><br>
@@ -31,14 +31,14 @@
             </div>
             <!--Modal-->
             <div id="contactModal" class="w3-modal">
-                <div class="w3-modal-content w3-card-4" style="width: 40%;">
+                <div class="w3-modal-content w3-card-4 w3-panel w3-sand" style="width: 40%;">
                     <div class="w3-container w3-section w3-center">
                       <span onclick="document.getElementById('contactModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
                       <img src="Images/MsPort.png" alt="MsPort" style="width: 100%;height: 60%;">
                     </div>
                     <div class="w3-section w3-container w3-center">
-                      <h2><strong><em>Megan Port</em></strong></h2>
-                      <h4>megan.port@ocdsb.ca</h4>
+                      <h2 class="w3-wide"><strong><em>Megan Port</em></strong></h2>
+                      <h4><a href="mailto: megan.port@ocdsb.ca" style="color: blue;">megan.port@ocdsb.ca</span></a></h4>
                     </div>
                 </div>
             </div>
