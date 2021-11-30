@@ -4,6 +4,7 @@ CREATE TABLE loginInfo{
     personID int NOT NULL AUTO_INCREMENT,
     username VARCHAR(255),
     passcode VARCHAR(255)
+    PRIMARY KEY(personID)
 }
 
 INSERT INTO loginInfo (username, passcode)
