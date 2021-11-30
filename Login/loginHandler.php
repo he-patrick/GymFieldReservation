@@ -1,34 +1,15 @@
 <?php
-/*
-session_start();
-$DATABASE_HOST = "localhost";
-$DATABASE_USER = "root";
-$DATABASE_PASS = "";
-$DATABASE_NAME = "loginDB";
-
-// Create connection
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PAS, $DATABASE_NAME);
-// Check connection
-if (mysqli_connect_errno()) {
-  exit("Connection failed: " . mysqli_connect_error());
+if(isset($_POST['username'])){
+    $uname = $_POST['username'];
 }
-
-$sql = "INSERT INTO loginInfo (username, passcode)
-VALUES ($uname, $pcode)";
-
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+if(isset($_POST['password'])){
+    $pword = $_POST['password'];
 }
-*/
-if ($_POST['username'] == 'megan.port@ocdsb.ca' && $_POST['passcode'] == 'earlathletics') {
+if (strcmp($uname, 'megan.port@ocdsb.ca') !== 0 || strcmp($pword, 'earlathletics') !== 0) {
 	// Correct username and password, logged in	
-  echo 'Welcome!';
-	} else {
-		// Incorrect password
-		echo 'Incorrect username and/or password!';
+  echo 'Incorrect username and/or password!';
+} else {
+    // Incorrect password
+    echo 'welcome!';
 }
-
-$conn->close();
 ?>
