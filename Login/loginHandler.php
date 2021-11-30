@@ -22,7 +22,7 @@ if ($conn->query($sql) === TRUE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 */
-if ($_POST['username'] = 'megan.port@ocdsb.ca' && $_POST['passcode'] = 'earlathletics') {
+if ($_POST['username'] == 'megan.port@ocdsb.ca' && $_POST['passcode'] == 'earlathletics') {
 	// Correct username and password, logged in	
   echo 'Welcome!';
 	} else {
