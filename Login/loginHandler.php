@@ -31,6 +31,7 @@ if ($_POST['username'] == $u && $_POST['passcode'] == $p) {
 } else {
 	// Incorrect password
   echo 'Incorrect username and/or password!';
+
 }
 
 //$conn->close();
