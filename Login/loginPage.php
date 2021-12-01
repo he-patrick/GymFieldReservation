@@ -32,11 +32,17 @@ session_start();
                     <?php
                         if(isset($_SESSION["error"])){
                             $error = $_SESSION["error"];
-                            echo "<span>$error</span>";
                         }
                     ?>
                 </form>
                 <br>
+                <div class="w3-padding-small w3-text-red">
+                <?php
+                    if(isset($error)){
+                        echo $error;
+                    }   
+                ?>
+                </div>
                 <button class="text-field w3-cyan w3-hover-light-green w3-border-0 w3-auto" onclick="document.getElementById('contactModal').style.display='block';">Contact</button>
             </div>
             <!--Modal-->
