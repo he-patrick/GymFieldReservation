@@ -22,18 +22,17 @@ if ($conn->query($sql) === TRUE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 */
-
+session_start();
 $u = 'megan.port@ocdsb.ca';
 $p = 'earlathletics';
 if ($_POST['username'] == $u && $_POST['passcode'] == $p) {
 	// Correct username and password, logged in	
-		echo 'Welcome';
-    header('Location: ReservationPages/HomePage.html');
+    header('Location: Home Page/HomePage.html');
     die();
 } else {
 	// Incorrect password
-  echo 'Incorrect username and/or password!';
-  
+  $_SESSION["error"] = 'Incorrect username and/or password!';
+  header('Location: loginPage.php');
 }
 
 //$conn->close();

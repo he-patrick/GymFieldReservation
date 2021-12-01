@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html> 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
@@ -25,6 +29,12 @@
                     <input class="text-field" type="text" id="username" name="username" placeholder="Username or Email"><br><br>
                     <input class="text-field" type="password" id="passcode" name="passcode" placeholder="Password"><br><br>
                     <input class="w3-cyan w3-hover-light-green w3-border-0 text-field" type="submit" value="Log in">
+                    <?php
+                        if(isset($_SESSION["error"])){
+                            $error = $_SESSION["error"];
+                            echo "<span>$error</span>";
+                        }
+                    ?>
                 </form>
                 <br>
                 <button class="text-field w3-cyan w3-hover-light-green w3-border-0 w3-auto" onclick="document.getElementById('contactModal').style.display='block';">Contact</button>
@@ -55,3 +65,7 @@
         </script>
     </body>
 </html>
+
+<?php
+    unset($_SESSION["error"]);
+?>
