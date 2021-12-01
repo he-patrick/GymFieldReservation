@@ -28,10 +28,12 @@ $p = 'earlathletics';
 if ($_POST['username'] == $u && $_POST['passcode'] == $p) {
 	// Correct username and password, logged in	
 		echo 'Welcome';
+    header('Location: ReservationPages/HomePage.html');
+    die();
 } else {
 	// Incorrect password
   echo 'Incorrect username and/or password!';
-
+  
 }
 
 //$conn->close();
