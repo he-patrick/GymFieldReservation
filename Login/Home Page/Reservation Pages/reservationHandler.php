@@ -10,8 +10,8 @@
     $reservationDate = $_POST["reservation"];
     $reservationTime = $_POST["times"];
     $area = $_POST["ReservationArea"];
-    $result = $conn->query("SELECT * FROM reservationinfo WHERE ReservationTime = $reservationTime AND ReservationDate = $reservationDate AND Area = $area");
-    if($result == FALSE) {
+    $result = mysqli_query($conn, "SELECT personID FROM reservationinfo WHERE ReservationTime = '$reservationTime' AND ReservationDate = '$reservationDate' AND Area = '$area'");
+    if(mysqli_num_rows($result) == 0) {
          // row not found, do stuff...
          $firstName = $_POST["fname"];
          $lastName = $_POST["lname"];
