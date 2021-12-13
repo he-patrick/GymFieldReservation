@@ -37,6 +37,7 @@
     </div>
     </div>
 <br><br>
+
 <div class="w3-container w3-pale-blue">
   <h1>&#189 Main Field #1</h1>
   <p>Please Enter Your Reservation Here</p>
@@ -45,7 +46,7 @@
   </div>
   <div class="w3-container w3-col s4">
     <table>
-      <form action="reservationHandler.php" style="width: 100%;" method="post">
+      <form action="reservationHandler.php" style="width: 100%;" method="POST">
         <tr><input class="w3-margin-bottom" type="date" id="reserveDate" name="reservation" style="width:100%;height: 40px;"></tr>
         <tr>
             <select class="w3-section" list="time" id="timeSelection" name="times" placeholder="Choose a time" style="width: 100%;height: 40px;" required>
@@ -58,7 +59,7 @@
         <tr><input class="w3-section" type="text" id="fname" name="fname" placeholder="First Name" style="width: 100%;height: 40px;"></tr>
         <tr><input class="w3-section" type="text" id="lname" name="lname" placeholder="Last Name" style="width: 100%;height: 40px;"></tr>
         <tr><input class="w3-section" type="email" id="email" name ="email" placeholder="someone@example.com" style="width: 100%;height: 40px;"></tr>
-        <input type="hidden" id="ReservationArea" value="HalfMainField1">
+        <tr><input type="hidden" id="ReservationArea" name="ReservationArea" value="HalfMainField1"></tr>
         <tr><input class="w3-section" type="submit" value="Save" style="width: 100%;height: 40px;"></tr>
       </form>
     </table>
