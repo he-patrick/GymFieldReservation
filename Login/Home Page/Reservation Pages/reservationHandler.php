@@ -8,7 +8,7 @@
 
     $conn = new mysqli($servername, $username, $password, $dbname);
     
-    $result = $mysqli->query("SELECT id FROM mytable WHERE times = $_POST[times]");
+    $result = $conn->query("SELECT id FROM reservationinfo WHERE ReservationTime = $_POST[times]");
     if($result->num_rows == 0) {
          // row not found, do stuff...
          $reservationDate = $_POST["reservation"];
