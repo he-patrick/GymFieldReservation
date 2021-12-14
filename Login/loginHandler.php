@@ -1,40 +1,30 @@
 <?php
-/*
+
 session_start();
-$DATABASE_HOST = "localhost";
-$DATABASE_USER = "root";
-$DATABASE_PASS = "";
-$DATABASE_NAME = "loginDB";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "logindb";
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Create connection
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PAS, $DATABASE_NAME);
-// Check connection
-if (mysqli_connect_errno()) {
-  exit("Connection failed: " . mysqli_connect_error());
-}
+$u = 'SELECT username, passcode FROM logininfo';
+$result = mysqli_query($conn, $u);
 
-$sql = "INSERT INTO loginInfo (username, passcode)
-VALUES ($uname, $pcode)";
-
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
-*/
-session_start();
-$u = 'megan.port@ocdsb.ca';
-$p = 'earlathletics';
-if ($_POST['username'] == $u && $_POST['passcode'] == $p) {
-	// Correct username and password, logged in	
+//$_POST['username'] == $u && $_POST['passcode'] == $p
+if (mysqli_num_rows($result) > 0){
+  $row = mysqli_fetch_assoc($result);
+  if($row['username'] == $_POST['username'] && $row['passcode'] == $_POST['passcode']){
+    // Correct username and password, logged in	
     header('Location: Home Page/HomePage.html');
     die();
-} else {
-	// Incorrect password
-  $_SESSION["error"] = 'Incorrect username and/or password!';
-  header('Location: loginPage.php');
-}
-
+  }
+	else {
+    // Incorrect password
+    $_SESSION["error"] = 'Incorrect username and/or password!';
+    header('Location: loginPage.php');
+  }
+} 
+$conn->close();
 //$conn->close();
 
 ?>
