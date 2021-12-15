@@ -29,35 +29,28 @@
         $conn->close();
     }
    
-use PHPMailer;
-use SMTP;
-use Exception;
-require 'vendor/autoload.php';
-
-$mail = new PHPMailer(true);
-
-//Send mail using gmail
-if($send_using_gmail){
-    $mail->IsSMTP(); // telling the class to use SMTP
-    $mail->SMTPAuth = true; // enable SMTP authentication
-    $mail->SMTPSecure = "ssl"; // sets the prefix to the servier
-    $mail->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
-    $mail->Port = 465; // set the SMTP port for the GMAIL server
-    $mail->Username = "your-gmail-account@gmail.com"; // GMAIL username
-    $mail->Password = "your-gmail-password"; // GMAIL password
-}
-
-//Typical mail data
-$mail->AddAddress($email, $name);
-$mail->SetFrom($email_from, $name_from);
-$mail->Subject = "My Subject";
-$mail->Body = "Mail contents";
-
-try{
-    $mail->Send();
-    echo "Success!";
-} catch(Exception $e){
-    //Something went bad
-    echo "Fail - " . $mail->ErrorInfo;
-}
-?>
+    require("/home/site/libs/PHPMailer-master/src/PHPMailer.php");
+    require("/home/site/libs/PHPMailer-master/src/SMTP.php");
+  
+      $mail = new PHPMailer\PHPMailer\PHPMailer();
+      $mail->IsSMTP(); // enable SMTP
+  
+      $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+      $mail->SMTPAuth = true; // authentication enabled
+      $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+      $mail->Host = "smtp.gmail.com";
+      $mail->Port = 465; // or 587
+      $mail->IsHTML(true);
+      $mail->Username = "phetheep@gmail.com";
+      $mail->Password = "Phe6596508886";
+      $mail->SetFrom("phetheep@gmail.com");
+      $mail->Subject = "Test";
+      $mail->Body = "hello";
+      $mail->AddAddress("phetheep@gmail.com");
+  
+       if(!$mail->Send()) {
+          echo "Mailer Error: " . $mail->ErrorInfo;
+       } else {
+          echo "Message has been sent";
+       }
+  ?>
