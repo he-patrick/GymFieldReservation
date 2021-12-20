@@ -12,7 +12,7 @@
   $reservationTime = $_POST["times"];
   $area = $_POST["ReservationArea"];
   $result = mysqli_query($conn, "SELECT * FROM reservationdb WHERE ReservationTime = $reservationTime AND ReservationDate = $reservationDate AND Area = $area");
-  if($result == 0) {
+  if(mysqli_num_rows($result) == 0) {
        // row not found, do stuff...
        $firstName = $_POST["fname"];
        $lastName = $_POST["lname"];
@@ -20,11 +20,11 @@
        $sql = "INSERT INTO reservationinfo (ReservationDate, ReservationTime, FirstName, LastName, Email, Area) VALUES ('$reservationDate', '$reservationTime', '$firstName', '$lastName', '$email', '$area')";
        mysqli_query($conn, $sql) or die('Error, insert query failed');
        if($conn->query($sql) == TRUE){
-           echo "Successfully Booked";
+           $_SESSION["success"] = "Successfully Booked";
        }
   } else {
       // do other stuff...
-      echo "failed";
+      $_SESSION["success"] = "Booking Failed";
   }
   $conn->close();
   
