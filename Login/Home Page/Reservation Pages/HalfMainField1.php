@@ -1,3 +1,7 @@
+<?php
+session_set_cookie_params(0);
+session_start();
+?>
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <html>
@@ -61,7 +65,19 @@
         <tr><input class="w3-section" type="email" id="email" name ="email" placeholder="someone@example.com" style="width: 100%;height: 40px;"></tr>
         <tr><input type="hidden" id="ReservationArea" name="ReservationArea" value="HalfMainField1"></tr>
         <tr><input class="w3-section" type="submit" value="Save" style="width: 100%;height: 40px;"></tr>
+          <?php
+            if(isset($_SESSION["success"])){
+              $success = $_SESSION["success"];
+            }
+          ?>
       </form>
+      <div class="w3-padding-small w3-text-green w3-center">
+        <?php
+            if(isset($success)){
+                echo $success;
+            }
+        ?>
+      </div>
     </table>
   </div>
 </div>
