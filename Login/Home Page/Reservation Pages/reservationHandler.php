@@ -1,6 +1,6 @@
 
 <?php
-
+header('Location: HalfMainGym2.html');
 session_start();
 $servername = "localhost";
 $username = "root";
@@ -67,7 +67,3 @@ try {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-<meta http-equiv="refresh" content="0;url=HalfMainField2.html">
-</html>
