@@ -1,31 +1,27 @@
-
 <?php
-  
   session_start();
   $servername = "localhost";
   $username = "root";
   $password = "";
   $dbname = "reservationdb";
-
   $conn = new mysqli($servername, $username, $password, $dbname);
   $reservationDate = $_POST["reservation"];
   $reservationTime = $_POST["times"];
   $area = $_POST["ReservationArea"];
-  $result = mysqli_query($conn, "SELECT * FROM reservationdb WHERE ReservationTime = $reservationTime AND ReservationDate = $reservationDate AND Area = $area");
+  $result = mysqli_query($conn, "SELECT * FROM reservationinfo WHERE ReservationTime = '$reservationTime' AND ReservationDate = '$reservationDate' AND Area = '$area'");
   if(mysqli_num_rows($result) == 0) {
        // row not found, do stuff...
-       $firstName = $_POST["fname"];
+       $eventName = $_POST["fname"];
        $lastName = $_POST["lname"];
        $email = $_POST["email"];
-       $sql = "INSERT INTO reservationinfo (ReservationDate, ReservationTime, FirstName, LastName, Email, Area) VALUES ('$reservationDate', '$reservationTime', '$firstName', '$lastName', '$email', '$area')";
+       $sql = "INSERT INTO reservationinfo (ReservationDate, ReservationTime, eventName, LastName, Email, Area) VALUES ('$reservationDate', '$reservationTime', '$eventName', '$lastName', '$email', '$area')";
        mysqli_query($conn, $sql) or die('Error, insert query failed');
-       if($conn->query($sql) == TRUE){
-           $_SESSION["success"] = "Successfully Booked";
-       }
+       $_SESSION["success"] = 'Successfully Booked';
   } else {
       // do other stuff...
-      $_SESSION["success"] = "Booking Failed";
+      $_SESSION["success"] = 'Booking Failed';
   }
+  header('Location:'.$area.'.php');
   $conn->close();
   
 use PHPMailer\PHPMailer\PHPMailer;
@@ -52,17 +48,15 @@ try {
 
     //Recipients
     $mail->setFrom('gymfieldbooking@gmail.com', 'GymFieldBooking', 0);
-    $mail->addAddress('calvin.d.luo@gmail.com', 'Calvin');     //Add a recipient
+    $mail->addAddress('$email', '$lastName');     //Add a recipient
 
     //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
+    $mail->isHTML(true); //Set email format to HTML
+    $mail->Subject = $eventName.'Successfully Booked!';
+    $mail->Body    = 'You successfully booked an Gym/Field on '.$date.' at '.$time;
     $mail->send();
-    echo 'Message has been sent';
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    $hi = "hi";
 }
+
 ?>
