@@ -39,7 +39,7 @@
   <h1>Intermediate Gym</h1>
   <p>Please Enter Your Reservation Here</p>
   <div class="w3-col s8">
-    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FToronto&showTitle=0&showCalendars=1&mode=WEEK&src=Z3ltZmllbGRib29raW5nQGdtYWlsLmNvbQ&src=dHBucjdhN2szNDFlZ3NxbGJiamNrcGNmMnNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23039BE5&color=%23B39DDB" style="border:solid 1px #777; width: 100%; height: 600px;"></iframe>
+  <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FToronto&showCalendars=1&showTitle=0&showNav=1&showDate=1&showPrint=1&showTabs=1&mode=WEEK&src=Z3ltZmllbGRib29raW5nQGdtYWlsLmNvbQ&src=ZGl0YjY4a3I5YW05ZWhpOXJsMWowYTZiNThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23D50000&color=%23039BE5" style="border:solid 1px #777; width: 100%; height: 600px;"></iframe>
   </div>
   <div class="w3-container w3-col s4">
     <table>
