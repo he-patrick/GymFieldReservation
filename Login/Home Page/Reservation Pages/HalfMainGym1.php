@@ -48,7 +48,7 @@ session_start();
   </div>
   <div class="w3-container w3-col s4">
     <table>
-      <form action="reservationHandler.php" style="width: 100%;" method="POST">
+    <form action="reservationHandler.php" style="width: 100%;" method="POST">
         <tr><input class="w3-margin-bottom" type="date" id="reserveDate" name="reservation" style="width:100%;height: 40px;"></tr>
         <tr>
             <select class="w3-section" list="time" id="timeSelection" name="times" placeholder="Choose a time" style="width: 100%;height: 40px;" required>

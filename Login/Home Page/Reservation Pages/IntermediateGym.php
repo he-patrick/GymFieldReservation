@@ -48,7 +48,7 @@ session_start();
   </div>
   <div class="w3-container w3-col s4">
     <table>
-      <form style="width: 100%;">
+    <form action="reservationHandler.php" style="width: 100%;" method="POST">
         <tr><input class="w3-margin-bottom" type="date" id="reserveDate" name="reservation" style="width:100%;height: 40px;"></tr>
         <tr>
             <select class="w3-section" list="time" id="timeSelection" name="times" placeholder="Choose a time" style="width: 100%;height: 40px;" required>
@@ -58,12 +58,24 @@ session_start();
               <option value="4:00PM">4:00 PM</option>
             </select>
         </tr>
-        <tr><input class="w3-section" type="text" id="fname" name="fname" placeholder="First Name" style="width: 100%;height: 40px;"></tr>
-        <tr><input class="w3-section" type="text" id="lname" name="lname" placeholder="Last Name" style="width: 100%;height: 40px;"></tr>
+        <tr><input class="w3-section" type="text" id="fname" name="fname" placeholder="Event Name" style="width: 100%;height: 40px;"></tr>
+        <tr><input class="w3-section" type="text" id="lname" name="lname" placeholder="Name (First, Last)" style="width: 100%;height: 40px;"></tr>
         <tr><input class="w3-section" type="email" id="email" name ="email" placeholder="someone@example.com" style="width: 100%;height: 40px;"></tr>
-        <tr><input type="hidden" id="ReservationArea" name="ReservationArea" value="IntermediateGym"></tr>
+        <tr><input type="hidden" id="ReservationArea" name="ReservationArea" value="HalfMainField2"></tr>
         <tr><input class="w3-section" type="submit" value="Save" style="width: 100%;height: 40px;"></tr>
+        <?php
+            if(isset($_SESSION["success"])){
+              $success = $_SESSION["success"];
+            }
+          ?>
       </form>
+      <div class="w3-padding-small w3-text-green w3-center">
+        <?php
+            if(isset($success)){
+                echo $success;
+            }
+        ?>
+      </div>
     </table>
   </div>
 </div>
