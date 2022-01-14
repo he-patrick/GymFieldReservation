@@ -1,3 +1,7 @@
+<?php
+session_set_cookie_params(0);
+session_start();
+?>
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <html>
@@ -24,7 +28,7 @@
         <div class="w3-dropdown-hover w3-right">
           <button class="w3-button">Gyms & Fields &#9660</button>
           <div class="w3-dropdown-content w3-bar-block w3-card-4">
-            <a href="HalfMainField1.html" class="w3-bar-item w3-button">&#189 Main Gym 1</a>
+            <a href="HalfMainField1.php" class="w3-bar-item w3-button">&#189 Main Gym 1</a>
             <a href="HalfMainField2.html" class="w3-bar-item w3-button">&#189 Main Gym 2</a>
             <a href="UpperGym.html" class="w3-bar-item w3-button">Upper Gym</a>
             <a href="IntermediateGym.html" class="w3-bar-item w3-button">Intermediate Gym</a>
@@ -41,11 +45,11 @@
   <h1>&#189 Main Field #2</h1>
   <p>Please Enter Your Reservation Here</p>
   <div class="w3-col s8">
-    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FToronto&showCalendars=1&showTitle=0&showNav=1&showDate=1&showPrint=1&showTabs=1&mode=WEEK&src=Z3ltZmllbGRib29raW5nQGdtYWlsLmNvbQ&src=bXRkcjdna3NzMXA5NzJjc2w0ZTRzNWJwbm9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23D50000&color=%23039BE5" style="border:solid 1px #777; width: 100%; height: 600px;"></iframe>
+    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FToronto&mode=WEEK&src=Z3ltZmllbGRib29raW5nQGdtYWlsLmNvbQ&src=bXRkcjdna3NzMXA5NzJjc2w0ZTRzNWJwbm9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23D50000&color=%23039BE5" style="border:solid 1px #777" width="100%" height="600"></iframe>
   </div>
   <div class="w3-container w3-col s4">
     <table>
-      <form action="/reservationHandler.php" style="width: 100%;">
+      <form action="reservationHandler.php" style="width: 100%;" method="POST">
         <tr><input class="w3-margin-bottom" type="date" id="reserveDate" name="reservation" style="width:100%;height: 40px;"></tr>
         <tr>
             <select class="w3-section" list="time" id="timeSelection" name="times" placeholder="Choose a time" style="width: 100%;height: 40px;" required>
@@ -55,12 +59,24 @@
               <option value="4:00PM">4:00 PM</option>
             </select>
         </tr>
-        <tr><input class="w3-section" type="text" id="fname" name="fname" placeholder="First Name" style="width: 100%;height: 40px;"></tr>
-        <tr><input class="w3-section" type="text" id="lname" name="lname" placeholder="Last Name" style="width: 100%;height: 40px;"></tr>
+        <tr><input class="w3-section" type="text" id="fname" name="fname" placeholder="Event Name" style="width: 100%;height: 40px;"></tr>
+        <tr><input class="w3-section" type="text" id="lname" name="lname" placeholder="Name (First, Last)" style="width: 100%;height: 40px;"></tr>
         <tr><input class="w3-section" type="email" id="email" name ="email" placeholder="someone@example.com" style="width: 100%;height: 40px;"></tr>
         <tr><input type="hidden" id="ReservationArea" name="ReservationArea" value="HalfMainField2"></tr>
         <tr><input class="w3-section" type="submit" value="Save" style="width: 100%;height: 40px;"></tr>
+        <?php
+            if(isset($_SESSION["success"])){
+              $success = $_SESSION["success"];
+            }
+          ?>
       </form>
+      <div class="w3-padding-small w3-text-green w3-center">
+        <?php
+            if(isset($success)){
+                echo $success;
+            }
+        ?>
+      </div>
     </table>
   </div>
 </div>
