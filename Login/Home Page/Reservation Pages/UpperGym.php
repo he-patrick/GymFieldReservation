@@ -1,14 +1,19 @@
+<?php
+session_set_cookie_params(0);
+session_start();
+?>
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <html>
-  <body class="w3-pale-blue">
+  <body class="w3-white">
     <div class="w3-top">
       <div class="w3-bar w3-light-green" style="font-size: 18px">
-        <a href="HomePage.html" class="w3-bar-item w3-button w3-wide"><em>GnF</em> Gym and Field Booking</a>
+        <a href="../HomePage.html" class="w3-bar-item w3-button w3-wide"><em>GnF</em> Gym and Field Booking</a>
         <button onclick="document.getElementById('contactModal').style.display='block'" class="w3-bar-item w3-button w3-right">Contact</button>
         
+        <!--Modal-->
         <div id="contactModal" class="w3-modal">
-          <div class="w3-modal-content w3-card-4 w3-panel w3-sand" style="width: 40%;">
+          <div class="w3-modal-content w3-card-4 w3-panel w3-sand" style="width: 40%">
               <div class="w3-container w3-section w3-center">
                 <span onclick="document.getElementById('contactModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
                 <img src="Images/MsPort.png" alt="MsPort" style="width: 100%;height: 60%;">
@@ -35,7 +40,7 @@
     </div>
     </div>
 <br><br>
-<div class="w3-container">
+<div class="w3-container w3-pale-blue">
   <h1>Upper Gym</h1>
   <p>Please Enter Your Reservation Here</p>
   <div class="w3-col s8">

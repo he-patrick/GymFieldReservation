@@ -8,13 +8,12 @@ session_start();
   <body class="w3-white">
     <div class="w3-top">
       <div class="w3-bar w3-light-green" style="font-size: 18px">
-        <a href="HomePage.html" class="w3-bar-item w3-button w3-wide"><em>GnF</em> Gym and Field Booking</a>
-        
+        <a href="../HomePage.html" class="w3-bar-item w3-button w3-wide"><em>GnF</em> Gym and Field Booking</a>
         <button onclick="document.getElementById('contactModal').style.display='block'" class="w3-bar-item w3-button w3-right">Contact</button>
-        
-            <!--Modal-->
+           
+          <!--Modal-->
             <div id="contactModal" class="w3-modal">
-              <div class="w3-modal-content w3-card-4 w3-panel w3-sand" style="width: 40%;">
+              <div class="w3-modal-content w3-card-4 w3-panel w3-sand" style="width: 40%">
                   <div class="w3-container w3-section w3-center">
                     <span onclick="document.getElementById('contactModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
                     <img src="Images/MsPort.png" alt="MsPort" style="width: 100%;height: 60%;">
@@ -41,16 +40,15 @@ session_start();
     </div>
     </div>
 <br><br>
-
 <div class="w3-container w3-pale-blue">
-  <h1>&#189 Main Field #1</h1>
+  <h1>&#189 Main Gym #1</h1>
   <p>Please Enter Your Reservation Here</p>
   <div class="w3-col s8">
-  <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FToronto&showCalendars=1&showTitle=0&showNav=1&showDate=1&showPrint=1&showTabs=1&mode=WEEK&src=Z3ltZmllbGRib29raW5nQGdtYWlsLmNvbQ&src=dHBucjdhN2szNDFlZ3NxbGJiamNrcGNmMnNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23D50000&color=%23039BE5" style="border:solid 1px #777; width: 100%; height: 600px;"></iframe>
+  <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FToronto&showTitle=0&showCalendars=1&mode=WEEK&src=Z3ltZmllbGRib29raW5nQGdtYWlsLmNvbQ&src=dHBucjdhN2szNDFlZ3NxbGJiamNrcGNmMnNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23039BE5&color=%23B39DDB" style="border:solid 1px #777; width: 100%; height: 600px;"></iframe>
   </div>
   <div class="w3-container w3-col s4">
     <table>
-      <form action="reservationHandler.php" style="width: 100%;" method="POST">
+      <form style="width: 100%;">
         <tr><input class="w3-margin-bottom" type="date" id="reserveDate" name="reservation" style="width:100%;height: 40px;"></tr>
         <tr>
             <select class="w3-section" list="time" id="timeSelection" name="times" placeholder="Choose a time" style="width: 100%;height: 40px;" required>
@@ -60,24 +58,12 @@ session_start();
               <option value="4:00PM">4:00 PM</option>
             </select>
         </tr>
-        <tr><input class="w3-section" type="text" id="fname" name="fname" placeholder="Event Name" style="width: 100%;height: 40px;"></tr>
-        <tr><input class="w3-section" type="text" id="lname" name="lname" placeholder="Name (First, Last)" style="width: 100%;height: 40px;"></tr>
+        <tr><input class="w3-section" type="text" id="fname" name="fname" placeholder="First Name" style="width: 100%;height: 40px;"></tr>
+        <tr><input class="w3-section" type="text" id="lname" name="lname" placeholder="Last Name" style="width: 100%;height: 40px;"></tr>
         <tr><input class="w3-section" type="email" id="email" name ="email" placeholder="someone@example.com" style="width: 100%;height: 40px;"></tr>
         <tr><input type="hidden" id="ReservationArea" name="ReservationArea" value="HalfMainField1"></tr>
         <tr><input class="w3-section" type="submit" value="Save" style="width: 100%;height: 40px;"></tr>
-          <?php
-            if(isset($_SESSION["success"])){
-              $success = $_SESSION["success"];
-            }
-          ?>
       </form>
-      <div class="w3-padding-small w3-text-green w3-center">
-        <?php
-            if(isset($success)){
-                echo $success;
-            }
-        ?>
-      </div>
     </table>
   </div>
 </div>

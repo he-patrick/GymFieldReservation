@@ -13,7 +13,7 @@ session_start();
            
           <!--Modal-->
             <div id="contactModal" class="w3-modal">
-              <div class="w3-modal-content w3-card-4 w3-panel w3-sand" style="width: 40%;">
+              <div class="w3-modal-content w3-card-4 w3-panel w3-sand" style="width: 40%">
                   <div class="w3-container w3-section w3-center">
                     <span onclick="document.getElementById('contactModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
                     <img src="Images/MsPort.png" alt="MsPort" style="width: 100%;height: 60%;">
