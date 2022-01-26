@@ -53,7 +53,7 @@ session_start();
                       <span onclick="document.getElementById('contactModal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
                       <img src="Images/MsPort.png" alt="MsPort" style="width: 100%;height: 60%;">
                     </div>
-                    <div class="w3-secti5on w3-container w3-center">
+                    <div class="w3-section w3-container w3-center">
                       <h2 class="w3-wide"><strong><em>Megan Port</em></strong></h2>
                       <h4><a href="mailto: megan.port@ocdsb.ca" style="color: blue;">megan.port@ocdsb.ca</span></a></h4>
                     </div>
