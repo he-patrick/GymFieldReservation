@@ -1,29 +1,47 @@
 <?php
+  //Start the session
   session_start();
+  /*
+  Connect to the database information
+  server name -> default 'localhost'
+  username -> default 'root'
+  password -> empty
+  database name -> reservationdb (as designated)
+  */
   $servername = "localhost";
   $username = "root";
   $password = "";
   $dbname = "reservationdb";
+  //Connect to the reservation database
   $conn = new mysqli($servername, $username, $password, $dbname);
+  /*Get the variables from the form
+  reservationDate, reservationTime, Area
+  */
   $reservationDate = $_POST["reservation"];
   $reservationTime = $_POST["times"];
   $area = $_POST["ReservationArea"];
+  //Create a MySQL query to select values that have the same reservation time, reservation date, and area
   $result = mysqli_query($conn, "SELECT * FROM reservationinfo WHERE ReservationTime = '$reservationTime' AND ReservationDate = '$reservationDate' AND Area = '$area'");
+  //Check if there are 0 rows, because if there are more than 0 then there are overlapping bookings 
   if(mysqli_num_rows($result) == 0) {
-       // row not found, do stuff...
+       // row not found, get event name, last name, and email from HTML form
        $eventName = $_POST["fname"];
        $lastName = $_POST["lname"];
        $email = $_POST["email"];
+       //MySQL query to insert data into the database, if it fails, kill the website and display the error message
        $sql = "INSERT INTO reservationinfo (ReservationDate, ReservationTime, eventName, LastName, Email, Area) VALUES ('$reservationDate', '$reservationTime', '$eventName', '$lastName', '$email', '$area')";
        mysqli_query($conn, $sql) or die('Error, insert query failed');
+       //Create a session variable saying it's successfully booked 
        $_SESSION["success"] = 'Successfully Booked';
   } else {
-      // do other stuff...
+      //Booking failed, session variable sent back
       $_SESSION["success"] = 'Booking Failed';
   }
-  //header('Location:'.$area.'.php');
+  //Return to the designated area using clever string concatenation
+  header('Location:'.$area.'.php');
   $conn->close();
-  
+
+//Include PHP mailer composer files that are needed to send an email
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -56,7 +74,8 @@ try {
     $mail->Body    = 'You successfully booked a reservation at '.$area.' at '.$reservationTime;
     $mail->send();
 } catch (Exception $e) {
-    $hi = "hi";
+  //Temporary command just to substitute a pass command because we like to have fun with the project as well
+  $hiMsTorres = "hi";
 }
 
 require __DIR__ . '/vendor/autoload.php';
@@ -64,9 +83,11 @@ require __DIR__ . '/vendor/autoload.php';
 /**
  * Returns an authorized API client.
  * @return Google_Client the authorized client object
+ * 
  */
 function getClient()
 {
+  //Create the google client and set requirements as per google tutorial
     $client = new Google_Client();
     $client->setApplicationName('Google Calendar API PHP Quickstart');
     $client->setScopes(Google_Service_Calendar::CALENDAR);
@@ -121,7 +142,7 @@ function getClient()
 $client = getClient();
 $service = new Google_Service_Calendar($client);
 
-/*
+/* IGNORE THIS: ERROR AND DEBUGGING CODE ONLY FOR THE CODERS EYES
 $calendarList = $service->calendarList->listCalendarList();
 
 while(true) {
@@ -150,6 +171,7 @@ tpnr7a7k341egsqlbbjckpcf2s@group.calendar.google.com HalfMainField1
 mtdr7gkss1p972csl4e4s5bpno@group.calendar.google.com HalfMainField2
 ditb68kr9am9ehi9rl1j0a6b58@group.calendar.google.com Intermediate Gym
 */
+//Associative array with all the calendar Ids
 $calendarIds = array(
   "UpperField" => "v885bcj2gf1umeqrbo22ivuab0@group.calendar.google.com",
   "UpperGym" => "viuaut6rjmkpjqonjjpks3cbvc@group.calendar.google.com",
@@ -160,7 +182,7 @@ $calendarIds = array(
   "IntermediateGym" => "ditb68kr9am9ehi9rl1j0a6b58@group.calendar.google.com"
 );
 
-// Print the next 10 events on the user's calendar.
+// Print the next 10 events on the user's calendar using the associative array as well to create a calendarId variable
 $calendarId = $calendarIds[$area];
 $optParams = array(
   'maxResults' => 10,
@@ -168,9 +190,11 @@ $optParams = array(
   'singleEvents' => true,
   'timeMin' => date('c'),
 );
+//Get the results from the API
 $results = $service->events->listEvents($calendarId, $optParams);
 $events = $results->getItems();
-echo $reservationTime.'<br>';
+//echo $reservationTime.'<br>'; DEBUGGING CODE
+//CREATE the end time variable based on the start times
 if($reservationTime == "3:00PM"){
     $reservationTime = '15:00:00';
     $reservationEnd = '16:00:00';
@@ -184,29 +208,40 @@ else if($reservationTime == "4:00PM"){
     $reservationEnd = '17:00:00';
 }
 
+//String concatenating the final datetime by adding the date+time
 $tempTimeFinal = $reservationDate.' '.$reservationTime;
+
+//Converting to RFC 3339 accepted time format
 $datetime = date("Y-m-d\TH:i:s", strtotime($tempTimeFinal));
-echo $datetime.'<br>';
+//echo $datetime.'<br>'; DEBUGGING
 
 $tempTimeEnd = $reservationDate.' '.$reservationEnd;
 $endTime = date("Y-m-d\TH:i:s", strtotime($tempTimeEnd));
-echo $endTime.'<br>';
+//echo $endTime.'<br>'; DEBUGGING
+
+//Create new event using the google service calendar event object which takes an array as the parameter
 $event = new Google_Service_Calendar_Event(array(
+  //Description user reads of the event, summary, and location
     'summary' => $eventName,
     'location' => $area,
     'description' => $eventName,
+    //Start time using RFC 3339 converted variable
     'start' => array(
       'dateTime' => $datetime,
       'timeZone' => 'America/Toronto',
     ),
+    //End time using RFC 3339 converted variable
     'end' => array(
       'dateTime' => $endTime,
       'timeZone' => 'America/Toronto',
     ),
 
+    //Attendees and invitees using email from HTML form
     'attendees' => array(
       array('email' => $email),
     ),
+
+    //Send reminders 1 day in advance, and create a pop up 10 minutes in advance
     'reminders' => array(
       'useDefault' => FALSE,
       'overrides' => array(
@@ -215,8 +250,13 @@ $event = new Google_Service_Calendar_Event(array(
       ),
     ),
   ));
+
+//Insert the event into the calendar to display
 $event = $service->events->insert($calendarId, $event);
-printf('Event created: %s\n', $event->htmlLink);
+
+//printf('Event created: %s\n', $event->htmlLink); DEBUGGING
+
+/*If there are no upcoming events, DEBUGGING*
 if (empty($events)) {
     print "No upcoming events found.\n";
 } else {
@@ -228,5 +268,5 @@ if (empty($events)) {
         }
         printf("%s (%s)\n", $event->getSummary(), $start);
     }
-}
+}*/
 ?>
