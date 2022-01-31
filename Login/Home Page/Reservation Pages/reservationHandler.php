@@ -62,7 +62,7 @@ try {
     $mail->Password   = 'earlofmarchss';                               //SMTP password
     $mail->SMTPSecure = 'tls';
     $mail->SMTPAutoTLS = false;            //Enable implicit TLS encryption
-    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = tls`
 
     //Recipients
     $mail->setFrom('gymfieldbooking@gmail.com', 'GymFieldBooking', 0);
