@@ -24,16 +24,17 @@ session_start();
                   </div>
               </div>
           </div>
+        <!--Dropdown bar-->
         <div class="w3-dropdown-hover w3-right">
           <button class="w3-button">Gyms & Fields &#9660</button>
           <div class="w3-dropdown-content w3-bar-block w3-card-4">
             <a href="HalfMainField1.php" class="w3-bar-item w3-button">&#189 Main Gym 1</a>
-            <a href="HalfMainField2.html" class="w3-bar-item w3-button">&#189 Main Gym 2</a>
-            <a href="UpperGym.html" class="w3-bar-item w3-button">Upper Gym</a>
-            <a href="IntermediateGym.html" class="w3-bar-item w3-button">Intermediate Gym</a>
-            <a href="HalfMainField1.html" class="w3-bar-item w3-button">&#189 Main Field 1</a>
-            <a href="HalfMainField2.html" class="w3-bar-item w3-button">&#189 Main Field 2</a>
-            <a href="UpperField.html" class="w3-bar-item w3-button">Upper Field</a>
+            <a href="HalfMainField2.php" class="w3-bar-item w3-button">&#189 Main Gym 2</a>
+            <a href="UpperGym.php" class="w3-bar-item w3-button">Upper Gym</a>
+            <a href="IntermediateGym.php" class="w3-bar-item w3-button">Intermediate Gym</a>
+            <a href="HalfMainField1.php" class="w3-bar-item w3-button">&#189 Main Field 1</a>
+            <a href="HalfMainField2.php" class="w3-bar-item w3-button">&#189 Main Field 2</a>
+            <a href="UpperField.php" class="w3-bar-item w3-button">Upper Field</a>
           </div>
         </div>
       </div>
@@ -48,6 +49,14 @@ session_start();
   </div>
   <div class="w3-container w3-col s4">
     <table>
+    <!--ACTION: reservationHandler.php
+    FIELDS:
+        Date,
+        Times available,
+        Event name, name, email
+        (Hidden) area, 
+        Submit button
+    -->
       <form action="reservationHandler.php" style="width: 100%;" method="POST">
         <tr><input class="w3-margin-bottom" type="date" id="reserveDate" name="reservation" style="width:100%;height: 40px;"></tr>
         <tr>

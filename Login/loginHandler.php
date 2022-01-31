@@ -1,12 +1,21 @@
 <?php
-
 session_start();
+/*
+Connect to the database information
+server name -> default 'localhost'
+username -> default 'root'
+password -> empty
+database name -> logindb (as designated)
+*/
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "logindb";
+
+//Connect to the database itself, using mysqli
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+//MySQL query to select the username and password
 $u = 'SELECT username, passcode FROM logininfo';
 $result = mysqli_query($conn, $u);
 

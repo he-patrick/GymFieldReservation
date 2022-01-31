@@ -21,7 +21,7 @@
       // do other stuff...
       $_SESSION["success"] = 'Booking Failed';
   }
-  header('Location:'.$area.'.php');
+  //header('Location:'.$area.'.php');
   $conn->close();
   
 use PHPMailer\PHPMailer\PHPMailer;
@@ -183,6 +183,7 @@ else if($reservationTime == "4:00PM"){
     $reservationTime = '16:00:00';
     $reservationEnd = '17:00:00';
 }
+
 $tempTimeFinal = $reservationDate.' '.$reservationTime;
 $datetime = date("Y-m-d\TH:i:s", strtotime($tempTimeFinal));
 echo $datetime.'<br>';
