@@ -1,4 +1,14 @@
 <?php
+/**
+   * loginPage.php
+   * 
+   * login page
+   * 
+   * @author Calvin Luo <calvin.d.luo@gmail.com>
+   * @author Patrick He <phetheep@gmail.com>
+   * @version 2.9
+   * @api Google calendar API
+   */
 //Start the session for session variables
 session_start();
 ?>

@@ -1,4 +1,14 @@
 <?php
+/**
+   * Upper Gym
+   * 
+   * reservation page
+   * 
+   * @author Calvin Luo <calvin.d.luo@gmail.com>
+   * @author Patrick He <phetheep@gmail.com>
+   * @version 2.0
+   * @api Google calendar API
+   */
 //Eliminate all cookies once the window is closed and start the session
 session_set_cookie_params(0);
 session_start();

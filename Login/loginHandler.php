@@ -1,4 +1,13 @@
 <?php
+/**
+   * loginHandler.php
+   * 
+   * login page request handler
+   * 
+   * @author Calvin Luo <calvin.d.luo@gmail.com>
+   * @author Patrick He <phetheep@gmail.com>
+   * @version 3.4
+   */
 session_start();
 /*
 Connect to the database information

@@ -1,4 +1,14 @@
 <?php
+  /**
+   * reservationHandler.php
+   * 
+   * handle reservation page requests
+   * 
+   * @author Calvin Luo <calvin.d.luo@gmail.com>
+   * @author Patrick He <phetheep@gmail.com>
+   * @version 3.1
+   * @api Google calendar API
+   */
   //Start the session
   session_start();
   /*
